@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
     int n, tmp;
-    stack<pair<int, int> > st;
+    stack<pair<int, int>> st;
     scanf("%d", &n);
     vector<int> l(n);
     for (int i = 0; i < n; i++)
@@ -42,40 +42,45 @@ int main()
     for (int i = 0; i < n; i++)
         printf("%d ", l[i]);
 }
-// #include <iostream>
-// #include <cstring>
-// #include <algorithm>
-// #include <vector>
-// #include <stack>
-// using namespace std;
 
-// int main()
-// {
-// 	int n;
-// 	int num;
-// 	vector<int> v;
-// 	stack<int> s;
+#include <iostream>
+#include <cstring>
+#include <algorithm>
+#include <vector>
+#include <stack>
+using namespace std;
 
-// 	scanf("%d", &n);
+int main()
+{
+    int n;
+    int num;
+    vector<int> v;
+    stack<int> s;
 
-// 	for (int i = 0; i < n; i++) {
-// 		scanf("%d", &num);
-// 		v.push_back(num);
-// 	}
+    scanf("%d", &n);
 
-// 	vector<int> ans(v.size(), -1);
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &num);
+        v.push_back(num);
+    }
 
-// 	for (int i = 0; i < v.size(); i++) {
-// 		while (!s.empty() && v[s.top()] < v[i]) {
-// 			ans[s.top()] = v[i];
-// 			s.pop();
-// 		}
-// 		s.push(i);
-// 	}
+    vector<int> ans(v.size(), -1);
 
-// 	for (int x : ans) {
-// 		cout << x << " ";
-// 	}
+    for (int i = 0; i < v.size(); i++)
+    {
+        while (!s.empty() && v[s.top()] < v[i])
+        {
+            ans[s.top()] = v[i];
+            s.pop();
+        }
+        s.push(i);
+    }
 
-// 	return 0;
-// }
+    for (int x : ans)
+    {
+        cout << x << " ";
+    }
+
+    return 0;
+}
