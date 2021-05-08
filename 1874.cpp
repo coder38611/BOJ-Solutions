@@ -2,7 +2,7 @@
 #include <stack>
 using namespace std;
 
-int main(void)
+int main()
 {
     int n, num, cur = 1;
     stack<int> s;

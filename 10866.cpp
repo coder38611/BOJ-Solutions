@@ -1,75 +1,67 @@
 #include <iostream>
 #include <deque>
-#include <string>
 using namespace std;
 
-int main()
+int main(void)
 {
-    deque<int> deq;
-    int n;
+    ios::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+
+    int n, tmp;
+    deque<int> dq;
+    string op;
     cin >> n;
 
     while (n--)
     {
-        string s;
-        cin >> s;
-        if (s == "push_front")
+        cin >> op;
+        if (op == "push_front")
         {
-            int parm;
-            cin >> parm;
-            deq.push_front(parm);
+            cin >> tmp;
+            dq.push_front(tmp);
         }
-        else if (s == "push_back")
+        else if (op == "push_back")
         {
-            int parm;
-            cin >> parm;
-            deq.push_back(parm);
+            cin >> tmp;
+            dq.push_back(tmp);
         }
-        else if (s == "pop_front")
+        else if (op == "pop_front")
         {
-            if (deq.empty())
-                cout << -1 << endl;
+            if (dq.empty()) cout << -1 << '\n';
             else
             {
-                cout << deq.front() << endl;
-                deq.pop_front();
+                cout << dq.front() << '\n';
+                dq.pop_front();
             }
         }
-        else if (s == "pop_back")
+        else if (op == "pop_back")
         {
-            if (deq.empty())
-                cout << -1 << endl;
+            if (dq.empty()) cout << -1 << '\n';
             else
             {
-                cout << deq.back() << endl;
-                deq.pop_back();
+                cout << dq.back() << '\n';
+                dq.pop_back();
             }
         }
-        else if (s == "size")
+        else if (op == "size")
         {
-            cout << deq.size() << endl;
+            cout << dq.size() << '\n';
         }
-        else if (s == "empty")
+        else if (op == "empty")
         {
-            if (deq.empty())
-                cout << "1" << endl;
-            else
-                cout << "0" << endl;
+            cout << dq.empty() << '\n';
         }
-        else if (s == "front")
+        else if (op == "front")
         {
-            if (deq.empty())
-                cout << "-1" << endl;
-            else
-                cout << deq.front() << endl;
+            if (dq.empty()) cout << -1 << '\n';
+            else cout << dq.front() << '\n';
         }
-        else if (s == "back")
+        else if (op == "back")
         {
-            if (deq.empty())
-                cout << "-1" << endl;
-            else
-                cout << deq.back() << endl;
+            if (dq.empty()) cout << -1 << '\n';
+            else cout << dq.back() << '\n';
         }
     }
+
     return 0;
 }

@@ -17,5 +17,4 @@ for _ in range(int(input())):
     buttons[0] = sixties
     buttons[2-(tens >= 0)] = abs(tens)
     buttons[4-(ones >= 0)] = abs(ones)
-    [print(button, end=' ') for button in buttons]
-    print()
+    print(*buttons)

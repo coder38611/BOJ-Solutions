@@ -1,51 +1,44 @@
 #include <iostream>
 #include <string>
-#include <stack>
+#include <list>
+
 using namespace std;
-int main()
-{
-    stack<int> s;
-    int n, tmp;
-    string st;
+
+int main() {
+    int n;
+    string s;
+    cin >> s;
     cin >> n;
-    while (n--)
-    {
-        cin >> st;
-        if (st == "push")
-        {
-            cin >> tmp;
-            s.push(tmp);
-        }
-        else if (st == "top")
-        {
-            if (!s.empty())
-            {
-                cout << s.top() << "\n";
-            }
-            else
-            {
-                cout << -1 << "\n";
+    list<char> l(s.begin(), s.end());
+    auto now = l.end();
+
+    while (n--) {
+        char tmp;
+        cin >> tmp;
+
+        if (tmp == 'L') {
+            if (now != l.begin()) {
+                now--;
             }
         }
-        else if (st == "empty")
-        {
-            cout << s.empty() << "\n";
-        }
-        else if (st == "pop")
-        {
-            if (!s.empty())
-            {
-                cout << s.top() << "\n";
-                s.pop();
-            }
-            else
-            {
-                cout << -1 << "\n";
+        else if (tmp == 'D') {
+            if (now != l.end()) {
+                now++;
             }
         }
-        else if (st == "size")
-        {
-            cout << s.size() << "\n";
+        else if (tmp == 'B') {
+            if (now != l.begin()) {
+                now = l.erase(--now);
+            }
+        }
+        else if (tmp == 'P') {
+            char c;
+            cin >> c;
+            l.insert(now, c);
         }
     }
+    for (auto it = l.begin(); it != l.end(); it++) {
+        cout << *it;
+    }
+    return 0;
 }

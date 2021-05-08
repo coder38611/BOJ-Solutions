@@ -21,7 +21,7 @@ int main()
         }
         printf("%d", q.front());
         q.pop();
-        if (n > 0)
+        if (n)
             printf(", ");
     }
     printf(">");
